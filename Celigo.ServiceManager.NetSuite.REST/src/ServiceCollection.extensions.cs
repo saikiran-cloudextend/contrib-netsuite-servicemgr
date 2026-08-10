@@ -50,7 +50,7 @@ namespace Microsoft.Extensions.DependencyInjection
             }
 
             services.AddHttpClient<IRestletClient, RestletClient>();
-            
+
             services.AddSingleton<IRestletClientFactory, RestletClientFactory>();
 
             return services;
@@ -82,7 +82,11 @@ namespace Microsoft.Extensions.DependencyInjection
                 sp.GetRequiredService<GuardPipeline>(),
                 sp.GetRequiredService<INsCallContextAccessor>()));
 
-            services.AddSingleton<IRestletClientFactory, RestletClientFactory>();
+            services.AddSingleton<RestletClientFactory>();
+            services.AddSingleton<IRestletClientFactory>(sp => new GuardedRestletClientFactory(
+                sp.GetRequiredService<RestletClientFactory>(),
+                sp.GetRequiredService<GuardPipeline>(),
+                sp.GetRequiredService<INsCallContextAccessor>()));
 
             return services;
         }
