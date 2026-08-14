@@ -74,8 +74,9 @@ namespace Celigo.ServiceManager.NetSuite.REST.UnitTests
             A.CallTo(() => status.GetStatusAsync(ConnectionId, A<CancellationToken>._))
                 .Returns(new ConnectionStatusDto { ConnectionId = ConnectionId });
 
+            var metrics = A.Fake<IGuardMetrics>();
             var pipeline = new GuardPipeline(
-                status, Options.Create(new ConnectionGuardOptions()), NullLogger<GuardPipeline>.Instance);
+                status, metrics, Options.Create(new ConnectionGuardOptions()), NullLogger<GuardPipeline>.Instance);
 
             var accessor = new DefaultNsCallContextAccessor();
             if (ctx is not null)
