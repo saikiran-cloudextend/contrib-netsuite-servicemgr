@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Version>3.0.6</Version>
+    <Version>3.0.7</Version>
     <Authors>CloudExtend.io</Authors>
     <Company>Celigo, Inc.</Company>
     <Description>REST Client for NetSuite REST API and RESTlets</Description>
@@ -16,6 +16,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>
+      v3.0.7 - Updated Celigo NetSuite Connection Guard Client and Decorators dependencies to 1.3.1.
       v3.0.6 - Updated Celigo NetSuite Connection Guard dependencies to 1.3.0.
       v3.0.5 - AddGuardedRestletClient now wires GuardedRestletClientFactory so named clients from IRestletClientFactory.CreateClient(name) are guarded too.
       v3.0.4 - bump ConnectionGuard.Decorators to 1.2.2 (mark offline/online split-route contract fix)
@@ -32,7 +33,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Celigo.NetSuite.ConnectionGuard.Abstractions" Version="1.3.0" />
-    <PackageReference Include="Celigo.NetSuite.ConnectionGuard.Decorators" Version="1.3.0" />
+    <PackageReference Include="Celigo.NetSuite.ConnectionGuard.Decorators" Version="1.3.1" />
   </ItemGroup>
 
 </Project>
